@@ -11,5 +11,15 @@ function login() {
         id: id.value,
         pswd: pswd.value,
     };
-    console.log(req);
+    
+    // body로 데이터 전달할 땐 POST 씀, rest API 공부하래
+    fetch("/login", {
+        method: "POST",
+        headers: {
+            "COntent-Type": "application/json"
+        },
+        body: JSON.stringify(req)
+    })
+    .then((res) => res.json())
+    .then(console.log);
 }
