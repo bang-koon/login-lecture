@@ -10,18 +10,19 @@ registerBtn.addEventListener("click", register);
 
 function register(e) {
     e.preventDefault();
+    if (!id.value || !pswd.value || !name.value) return alert("입력해");
+    if (pswd.value !== confirmPswd.value) return alert("비밀번호 불일치");
+
     const req = {
         id: id.value,
         name: name.value,
         pswd: pswd.value,
-        confirmPswd: confirmPswd.value,
     };
-    console.log(req);
     
     fetch("/register", {
         method: "POST",
         headers: {
-            "COntent-Type": "application/json"
+            "Content-Type": "application/json"
         },
         body: JSON.stringify(req)
     })

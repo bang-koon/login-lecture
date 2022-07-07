@@ -18,7 +18,7 @@ class UserStorage {
         }, {});
         return newUsers;
     };
-    
+
     static getUserInfo(id) {
         const users = this.#users;
         const userKeys = Object.keys(users);
@@ -28,7 +28,15 @@ class UserStorage {
             return newUser;
         }, {});
         return usersInfo;
-    }
+    };
+
+    static save(userInfo) {
+        const users = this.#users;
+        users.id.push(userInfo.id);
+        users.pswd.push(userInfo.pswd);
+        users.name.push(userInfo.name);
+        return { success: true };
+    };
 }
 
 module.exports = UserStorage; 
