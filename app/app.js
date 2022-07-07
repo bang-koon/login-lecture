@@ -2,14 +2,12 @@
 
 // modules
 const express = require("express");
-// const bodyParser = require("body-parser"); // req.body확인 시 필요, 바디 파싱 시
 const app = express();
 
 const PORT = 3000;
 
 // routing
 const home = require("./src/routes/home");
-// const { urlencoded } = require("body-parser");
 
 // app setting
 app.set('views', './src/views');
